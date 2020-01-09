@@ -12,11 +12,19 @@ class CalendarContainer extends Component {
   };
 
   handleSelect = selectedValue => {
+    // const { dates } = this.state;
+
     const { dates } = this.state;
 
+    const result = dates.filter(date => {
+      if(moment(date).isSame(selectedValue)) return false;
+      return date;
+    });
+
+    console.log('Result', result);
     this.setState({
       selectedValue,
-      dates: [...dates, selectedValue]
+      dates: [result]
     });
   }
 
