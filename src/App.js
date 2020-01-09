@@ -14,8 +14,8 @@ function App() {
       <Header>
         <div className="logo" />
       </Header>
-      <Content style={{ padding: '1em' }}>
-        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+      <Content>
+        <div className="container-main">
           <CalendarContainer />
         </div>
       </Content>

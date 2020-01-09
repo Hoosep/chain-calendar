@@ -1,42 +1,6 @@
 import React, { Component } from 'react';
-import { Calendar, Badge } from 'antd';
+import { Calendar, Icon, Row, Col } from 'antd';
 import moment from 'moment';
-
-function getListData(value) {
-  let listData;
-  // switch (value.date()) {
-  //   case 8:
-  //     listData = [
-  //       { type: 'warning', content: 'This is warning event.' },
-  //     ];
-  //     break;
-  //   case 10:
-  //     listData = [
-  //       { type: 'warning', content: 'This is warning event.' },
-  //     ];
-  //     break;
-  //   case 15:
-  //     listData = [
-  //       { type: 'warning', content: 'This is warning event' },
-  //     ];
-  //     break;
-  //   default:
-  // }
-  return listData || [];
-}
-
-function dateCellRender(value) {
-  const listData = getListData(value);
-  return (
-    <ul className="events">
-      {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 
 
@@ -55,12 +19,42 @@ class CalendarContainer extends Component {
       dates: [...dates, selectedValue]
     });
   }
+
+  getListDates = date => {
+    const { dates } = this.state;
+    let listData;
+    dates.map(item => {
+      if(moment(date).isSame(item)){
+        listData = [
+          { isSame: true }
+        ];
+      }
+    })
+
+    return listData || [];
+  }
+
+  renderCellDate = date => {
+    const listDates = this.getListDates(date);
+
+    return listDates.map((item, i) => {
+      return (
+        <Row key={i} type="flex" justify="space-around" align="middle" style={{height: 'inherit'}}>
+          <Col>
+            <Icon 
+              type="close"
+              className="icon-close"
+              />
+          </Col>
+        </Row>
+      )
+    })
+  }
   
   render(){
     const { selectedValue } = this.state;
-    console.log(this.state);
     return (
-      <Calendar value={selectedValue} onSelect={this.handleSelect} dateCellRender={dateCellRender} />
+      <Calendar value={selectedValue} onSelect={this.handleSelect} dateCellRender={this.renderCellDate} />
     )
   }
 }

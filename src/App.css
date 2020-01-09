@@ -38,3 +38,36 @@
     transform: rotate(360deg);
   }
 }
+
+.icon-close{
+  font-size: 4em;
+  color: #bb2124;
+}
+
+.container-main{
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+
+.ant-layout-content{
+  padding: 1em;
+}
+
+@media only screen and (max-width: 425px) {
+  .icon-close{
+    font-size: 2em;
+  }
+
+  .container-main{
+    padding: 2px;
+  }
+
+  .ant-fullcalendar-calendar-body{
+    padding: 8px 0;
+  }
+
+  .ant-layout-content{
+    padding: 0em;
+  }
+}
