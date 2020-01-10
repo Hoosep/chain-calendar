@@ -16,16 +16,45 @@ class CalendarContainer extends Component {
 
     const { dates } = this.state;
 
-    const result = dates.filter(date => {
-      if(moment(date).isSame(selectedValue)) return false;
-      return date;
-    });
+    if(dates.length === 0){
+      this.setState({
+        selectedValue,
+        dates: [selectedValue]
+      });
+    } else {
+      /* let result = dates.filter(date => {
+        console.log('Date', date);
+        console.log('SelectedV', selectedValue);
+        let equalDates = moment(date).isSame(selectedValue);
+        console.log(equalDates);
 
-    console.log('Result', result);
-    this.setState({
-      selectedValue,
-      dates: [result]
-    });
+        if (equalDates) {
+          return false;
+        } else {
+          return selectedValue;
+        }
+      }); */
+  
+      const result = dates.reduce((accumulator, item) => {
+        let equalDates = moment(item).isSame(selectedValue);
+
+        if(!equalDates) accumulator.push(selectedValue);
+
+        return accumulator;
+
+
+      }, []);
+
+      console.log('Result', result);
+      this.setState({
+        selectedValue,
+        dates: [...dates, selectedValue]
+      });
+      /* this.setState({
+        selectedValue,
+        dates: [...dates, selectedValue]
+      }); */
+    }
   }
 
   getListDates = date => {
