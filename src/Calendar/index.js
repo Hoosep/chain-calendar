@@ -5,15 +5,16 @@ import moment from 'moment';
 
 
 class CalendarContainer extends Component {
+  constructor(props){
+    super(props);
 
-  state = {
-    selectedValue: moment(),
-    dates: [],
-  };
+    state = {
+      selectedValue: moment(),
+      dates: [],
+    };
+  }
 
   handleSelect = selectedValue => {
-    // const { dates } = this.state;
-
     const { dates } = this.state;
 
     if(dates.length === 0){
@@ -22,38 +23,29 @@ class CalendarContainer extends Component {
         dates: [selectedValue]
       });
     } else {
-      /* let result = dates.filter(date => {
-        console.log('Date', date);
-        console.log('SelectedV', selectedValue);
-        let equalDates = moment(date).isSame(selectedValue);
-        console.log(equalDates);
+      let noSelectedValue = false;
 
-        if (equalDates) {
-          return false;
-        } else {
-          return selectedValue;
-        }
-      }); */
-  
-      const result = dates.reduce((accumulator, item) => {
+      const result = dates.reduce((result, item) => {
         let equalDates = moment(item).isSame(selectedValue);
+        if(equalDates) noSelectedValue = true;
+        else result.push(item);
 
-        if(!equalDates) accumulator.push(selectedValue);
-
-        return accumulator;
-
-
+        return result;
       }, []);
+      
 
-      console.log('Result', result);
-      this.setState({
-        selectedValue,
-        dates: [...dates, selectedValue]
-      });
-      /* this.setState({
-        selectedValue,
-        dates: [...dates, selectedValue]
-      }); */
+      if(noSelectedValue){
+        this.setState({
+          selectedValue,
+          dates: [...result]
+        });
+      } else {
+        this.setState({
+          selectedValue,
+          dates: [...result, selectedValue]
+        });
+      }
+
     }
   }
 
