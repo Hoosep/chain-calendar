@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { Calendar, Icon, Row, Col } from 'antd';
 import moment from 'moment';
-
+import { localStorageUtility } from './../Utilities/localstorage';
 
 
 class CalendarContainer extends Component {
   constructor(props){
     super(props);
-
-    state = {
+    
+    let dates = localStorageUtility.getDatesLocalStorage();
+    console.log('dates', dates);
+    this.state = {
       selectedValue: moment(),
-      dates: [],
+      dates
     };
   }
 
   handleSelect = selectedValue => {
     const { dates } = this.state;
 
+    console.log('selected', selectedValue);
+    localStorageUtility.addDatesLocalStorage('dates', selectedValue);
     if(dates.length === 0){
       this.setState({
         selectedValue,
