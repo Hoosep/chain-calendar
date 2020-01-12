@@ -9,7 +9,7 @@ class CalendarContainer extends Component {
     super(props);
     
     let dates = localStorageUtility.getDatesLocalStorage();
-    console.log('dates', dates);
+
     this.state = {
       selectedValue: moment(),
       dates
@@ -18,13 +18,13 @@ class CalendarContainer extends Component {
 
   handleSelect = selectedValue => {
     const { dates } = this.state;
-
-    console.log('selected', selectedValue);
-    localStorageUtility.addDatesLocalStorage('dates', selectedValue);
+    
+    let formatSelected = selectedValue.format('YYYY-MM-DD');
+    localStorageUtility.addDatesLocalStorage('dates', formatSelected);
     if(dates.length === 0){
       this.setState({
         selectedValue,
-        dates: [selectedValue]
+        dates: [formatSelected]
       });
     } else {
       let noSelectedValue = false;
@@ -57,7 +57,9 @@ class CalendarContainer extends Component {
     const { dates } = this.state;
     let listData;
     dates.map(item => {
-      if(moment(date).isSame(item)){
+      let formatDate = moment(date).format('YYYY-MM-DD');
+
+      if(formatDate == item){
         listData = [
           { isSame: true }
         ];
@@ -68,8 +70,9 @@ class CalendarContainer extends Component {
   }
 
   renderCellDate = date => {
+    
     const listDates = this.getListDates(date);
-
+    
     return listDates.map((item, i) => {
       return (
         <Row key={i} type="flex" justify="space-around" align="middle" style={{height: 'inherit'}}>
@@ -86,6 +89,8 @@ class CalendarContainer extends Component {
   
   render(){
     const { selectedValue } = this.state;
+
+    console.log(this.state);
     return (
       <Calendar value={selectedValue} onSelect={this.handleSelect} dateCellRender={this.renderCellDate} />
     )

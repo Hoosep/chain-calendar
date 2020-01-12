@@ -34,13 +34,20 @@ function addDatesLocalStorage(name, value) {
 
 };
 
+
+var dateString = 'Thu Jul 15 2016 19:31:44 GMT+0200 (CEST)';
+var dateObj = new Date(dateString);
+var momentObj = moment(dateObj);
+var momentString = momentObj.format('YYYY-MM-DD'); // 2016-07-15
+
 function getDatesLocalStorage(){
   let existing = localStorage.getItem('dates');
 
   existing = existing ? existing.split(',') : [];
 
   let momentDates = existing.map(date => {
-    return moment(date);
+    let dateObject = new Date(date);
+    return moment(dateObject).format('YYYY-MM-DD');
   });
 
   return momentDates;
