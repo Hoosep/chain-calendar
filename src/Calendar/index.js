@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { Calendar, Icon, Row, Col } from 'antd';
+import { Calendar, message, Row, Col } from 'antd';
 import moment from 'moment';
 import { localStorageUtility } from './../Utilities/localstorage';
+import { motivationalMessages } from './../Utilities/motivationalMessages';
 
+message.config({
+  top: 0,
+  duration: 5,
+});
 
 class CalendarContainer extends Component {
   constructor(props){
@@ -45,6 +50,11 @@ class CalendarContainer extends Component {
           dates: [...result]
         });
       } else {
+        let motivationQuote = motivationalMessages.randomQuote();
+        message.open({
+          content: <p className="motivational-quote">{motivationQuote}</p>
+        });
+
         this.setState({
           selectedValue,
           dates: [...result, formatSelected]
@@ -78,9 +88,9 @@ class CalendarContainer extends Component {
       return (
         <Row key={i} type="flex" justify="space-around" align="middle" style={{height: 'inherit'}}>
           <Col xs={24}>
-            <ul class="variations">
+            <ul className="variations">
               <li>
-                <span class="close blades black"></span>
+                <span className="close blades black"></span>
               </li>
             </ul>
           </Col>
