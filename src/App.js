@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Layout } from 'antd';
+import { Layout, Row, Col } from 'antd';
 
 //Components
 import CalendarContainer from './Calendar';
@@ -12,7 +12,14 @@ function App() {
   return (
     <Layout className="layout">
       <Header>
-        <div className="logo" />
+        <Row type="flex" justify="center" align="middle" gutter={32}>
+          <Col xs={24}>
+            <div className="logo" />
+            <span class="title-app">
+              Don't break the habit
+            </span>
+          </Col>
+        </Row>
       </Header>
       <Content>
         <div className="container-main">

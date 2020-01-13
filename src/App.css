@@ -1,6 +1,19 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Permanent+Marker&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .App {
+  text-align: center;
+}
+
+.title-app{
+  display: block;
+  color: #fff;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3em;
   text-align: center;
 }
 
@@ -11,7 +24,7 @@
   background-image: url('./logo.png');
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 12px 24px 12px 0;
+  margin: 12px 0;
   float: left;
 }
 
@@ -80,5 +93,13 @@
 
   .ant-layout-content{
     padding: 0em;
+  }
+
+  .title-app{
+    font-size: 1em;
+  }
+
+  .logo{
+    width: 40px;
   }
 }
