@@ -136,6 +136,10 @@ ul {
   margin:0;
 }
 
+.ant-message-notice{
+  padding:0;
+}
+
 .ant-layout-content{
   padding: 1em;
 }
@@ -144,7 +148,35 @@ ul {
   padding: 8px 0;
 }
 
+.motivational-quote{
+  margin:0;
+  font-size: 3em;
+}
+
+.ant-message-notice-content{
+  display: block;
+  background: #FFC71C;
+  color: #565656;
+  height: 72px;
+  border-radius: 0;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px){
+  .motivational-quote{
+    font-size: 2.5em;
+  }
+}
+
 @media only screen and (max-width: 425px) {
+  .motivational-quote{
+    font-size: 1.7em;
+  }
+
+  .ant-message-notice-content{
+    padding:5px 6px;
+  }
+
   .icon-close{
     font-size: 2em;
   }
@@ -184,6 +216,14 @@ ul {
   .ant-fullcalendar-fullscreen .ant-fullcalendar-date{
     padding: 0;
   }
+
+  .motivational-quote{
+    font-size: 1.4em;
+  }
+
+  .ant-message-notice-content{
+    padding:10px 20px;
+  }
 }
 
 @media only screen and (max-width: 320px){
@@ -206,5 +246,8 @@ ul {
   .ant-fullcalendar-fullscreen .ant-fullcalendar-header .ant-radio-group > label.ant-radio-button-wrapper{
     width:50%;
     text-align: center;
+  }
+  .motivational-quote{
+    font-size: 1.2em;
   }
 }
