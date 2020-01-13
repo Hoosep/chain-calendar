@@ -179,3 +179,32 @@ ul {
     border-radius: 5px 0;
   }
 }
+
+@media only screen and (max-width: 375px){
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-date{
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .ant-fullcalendar-header{
+    padding:10px 0;
+    text-align: center;
+  }
+
+  .ant-select.ant-fullcalendar-year-select,
+  .ant-select.ant-fullcalendar-month-select{
+    width: 48%;
+  }
+
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-header .ant-radio-group{
+    margin-left:0!important;
+    margin-top:10px;
+    width: 100%;
+  }
+
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-header .ant-radio-group > label.ant-radio-button-wrapper{
+    width:50%;
+    text-align: center;
+  }
+}
