@@ -15,7 +15,7 @@ function App() {
         <Row type="flex" justify="center" align="middle" gutter={32}>
           <Col xs={24}>
             <div className="logo" />
-            <span class="title-app">
+            <span className="title-app">
               Don't break the habit
             </span>
           </Col>
