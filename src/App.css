@@ -68,6 +68,63 @@ body {
   color: #bb2124;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.variations {
+  display: block;
+  margin: 0;
+  text-align: center;
+}
+
+.variations li {
+  vertical-align: top;
+}
+
+.close {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.close::before, .close::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #bb2124;
+}
+.close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.close.black::before, .close.black::after {
+  height: 8px;
+  margin-top: -4px;
+}
+
+.close.blades::before, .close.blades::after {
+  border-radius: 20px 5px;
+}
+
 .container-main{
   background: #fff;
   padding: 24px 0;
@@ -106,5 +163,19 @@ body {
 
   .logo{
     width: 40px;
+  }
+
+  .close{
+    width: 35px;
+    height: 35px;
+  }
+
+  .ant-fullcalendar-fullscreen .ant-fullcalendar-content{
+    overflow: hidden;
+  }
+
+  .close.black::before, .close.black::after{
+    height: 6px;
+    border-radius: 5px 0;
   }
 }
