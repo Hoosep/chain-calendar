@@ -77,11 +77,19 @@ class CalendarContainer extends Component {
     return listDates.map((item, i) => {
       return (
         <Row key={i} type="flex" justify="space-around" align="middle" style={{height: 'inherit'}}>
-          <Col>
-            <Icon 
+          <Col xs={24}>
+            <ul class="variations">
+    
+              <li>
+                <span class="close blades black"></span>
+              </li>
+                
+            </ul>
+
+            {/* <Icon 
               type="close"
               className="icon-close"
-              />
+              /> */}
           </Col>
         </Row>
       )
