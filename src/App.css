@@ -4,6 +4,17 @@
   text-align: center;
 }
 
+
+.logo{
+  width: 120px;
+  height: 40px;
+  background-image: url('./logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 12px 24px 12px 0;
+  float: left;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
