@@ -30,14 +30,15 @@ class CalendarContainer extends Component {
       let noSelectedValue = false;
 
       const result = dates.reduce((result, item) => {
-        let equalDates = moment(item).isSame(selectedValue);
+        let equalDates = moment(item).isSame(formatSelected);
+        
         if(equalDates) noSelectedValue = true;
         else result.push(item);
 
         return result;
       }, []);
       
-
+      console.log('result', result);
       if(noSelectedValue){
         this.setState({
           selectedValue,
@@ -46,7 +47,7 @@ class CalendarContainer extends Component {
       } else {
         this.setState({
           selectedValue,
-          dates: [...result, selectedValue]
+          dates: [...result, formatSelected]
         });
       }
 
@@ -56,15 +57,15 @@ class CalendarContainer extends Component {
   getListDates = date => {
     const { dates } = this.state;
     let listData;
-    dates.map(item => {
+    dates.forEach(item => {
       let formatDate = moment(date).format('YYYY-MM-DD');
 
-      if(formatDate == item){
+      if(formatDate === item){
         listData = [
           { isSame: true }
         ];
       }
-    })
+    });
 
     return listData || [];
   }
@@ -90,7 +91,6 @@ class CalendarContainer extends Component {
   render(){
     const { selectedValue } = this.state;
 
-    console.log(this.state);
     return (
       <Calendar value={selectedValue} onSelect={this.handleSelect} dateCellRender={this.renderCellDate} />
     )
