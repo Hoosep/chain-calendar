@@ -79,17 +79,10 @@ class CalendarContainer extends Component {
         <Row key={i} type="flex" justify="space-around" align="middle" style={{height: 'inherit'}}>
           <Col xs={24}>
             <ul class="variations">
-    
               <li>
                 <span class="close blades black"></span>
               </li>
-                
             </ul>
-
-            {/* <Icon 
-              type="close"
-              className="icon-close"
-              /> */}
           </Col>
         </Row>
       )
