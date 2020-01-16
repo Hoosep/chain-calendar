@@ -6,7 +6,8 @@ import { motivationalMessages } from './../Utilities/motivationalMessages';
 
 message.config({
   top: 0,
-  duration: 5,
+  duration: 5000000000000000,
+  maxCount: 1
 });
 
 class CalendarContainer extends Component {

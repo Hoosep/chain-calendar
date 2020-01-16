@@ -68,6 +68,10 @@ body {
   color: #bb2124;
 }
 
+.ant-message-notice:first-child{
+  margin-top: 0;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -157,9 +161,9 @@ ul {
   display: block;
   background: #FFC71C;
   color: #565656;
-  height: 72px;
+  min-height: 64px;
+  height: auto;
   border-radius: 0;
-  padding: 10px;
 }
 
 @media only screen and (max-width: 768px){
@@ -171,10 +175,6 @@ ul {
 @media only screen and (max-width: 425px) {
   .motivational-quote{
     font-size: 1.7em;
-  }
-
-  .ant-message-notice-content{
-    padding:5px 6px;
   }
 
   .icon-close{
@@ -219,10 +219,6 @@ ul {
 
   .motivational-quote{
     font-size: 1.4em;
-  }
-
-  .ant-message-notice-content{
-    padding:10px 20px;
   }
 }
 
